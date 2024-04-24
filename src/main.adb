@@ -3,12 +3,9 @@ with GNAT.Semaphores; use GNAT.Semaphores;
 
 procedure Main is
     FORKS_COUNT            : constant Integer := 5;
-    AVAILABLE_EATING_SEATS : constant Integer := 2;
 
     Forks               :
        array (1 .. FORKS_COUNT) of Counting_Semaphore (1, Default_Ceiling);
-    Eating_Philosophers :
-       Counting_Semaphore (AVAILABLE_EATING_SEATS, Default_Ceiling);
 
     task type Philosopher is
         entry Start (Id : Integer);
